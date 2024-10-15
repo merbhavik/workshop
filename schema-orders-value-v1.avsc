@@ -1,0 +1,123 @@
+{
+  "fields": [
+    {
+      "name": "orderId",
+      "type": {
+        "avro.java.string": "String",
+        "type": "string"
+      }
+    },
+    {
+      "name": "symbol",
+      "type": {
+        "avro.java.string": "String",
+        "type": "string"
+      }
+    },
+    {
+      "name": "assetType",
+      "type": {
+        "avro.java.string": "String",
+        "type": "string"
+      }
+    },
+    {
+      "name": "buySell",
+      "type": [
+        "null",
+        {
+          "name": "BuySell",
+          "symbols": [
+            "BUY",
+            "SELL"
+          ],
+          "type": "enum"
+        }
+      ]
+    },
+    {
+      "default": null,
+      "name": "bidOffer",
+      "type": [
+        "null",
+        {
+          "logicalType": "decimal",
+          "precision": 9,
+          "scale": 2,
+          "type": "bytes"
+        }
+      ]
+    },
+    {
+      "default": null,
+      "name": "currency",
+      "type": [
+        "null",
+        {
+          "avro.java.string": "String",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "quantity",
+      "type": "int"
+    },
+    {
+      "default": null,
+      "name": "orderTime",
+      "type": [
+        "null",
+        "long"
+      ]
+    },
+    {
+      "name": "allocations",
+      "type": {
+        "items": {
+          "fields": [
+            {
+              "name": "orderId",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "name": "account",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "name": "subAccount",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "name": "quantity",
+              "type": "int"
+            },
+            {
+              "name": "orderSize",
+              "type": "int"
+            }
+          ],
+          "name": "Allocation",
+          "type": "record"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "name": "timestamp",
+      "type": "long"
+    }
+  ],
+  "name": "Order",
+  "namespace": "com.ness.poc.domain.inbound",
+  "type": "record"
+}

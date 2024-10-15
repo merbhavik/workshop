@@ -1,0 +1,38 @@
+java -jar data-generator-1.0-SNAPSHOT.jar \
+  --data.generator.ordersPerSec=10 \
+  --data.generator.pricesPerSec=100 \
+  --data.generator.testDurationPerfIt=300000 \
+  --data.generator.symbolCount=128 \
+  --data.generator.accountsCount=4 \
+  --data.generator.subAccountsCount=4 \
+  --data.generator.allocationsCount=4 \
+  --data.generator.maxAttemptCount=30 \
+  --spring.kafka.streams.properties.num.stream.threads=8 \
+  --spring.kafka.properties.security.protocol=SASL_SSL \
+  --spring.kafka.properties.sasl.mechanism=PLAIN \
+  --spring.kafka.properties.schema.registry.url=${SCHEMA_REGISTRY_URL} \
+  --spring.kafka.properties.basic.auth.credentials.source=USER_INFO \
+  --spring.kafka.properties.basic.auth.user.info=${SCHEMA_REGISTRY_API_KEY}:${SCHEMA_REGISTRY_API_SECRET} \
+  --spring.kafka.properties.schema.registry.basic.auth.user.info=${SCHEMA_REGISTRY_API_KEY}:${SCHEMA_REGISTRY_API_SECRET} \
+  --bootstrap-servers=${BOOTSTRAP_SERVERS} \
+  --spring.kafka.properties.sasl.jaas.config="org.apache.kafka.common.security.plain.PlainLoginModule required username='${KAFKA_API_KEY}' password='${KAFKA_API_SECRET}';"
+
+
+java -jar data-generator-1.0-SNAPSHOT.jar \
+  --data.generator.ordersPerSec=15000 \
+  --data.generator.pricesPerSec=15000 \
+  --data.generator.testDurationPerfIt=900000 \
+  --data.generator.symbolCount=128 \
+  --data.generator.accountsCount=4 \
+  --data.generator.subAccountsCount=4 \
+  --data.generator.allocationsCount=4 \
+  --data.generator.maxAttemptCount=30 \
+  --spring.kafka.streams.properties.num.stream.threads=8 \
+  --spring.kafka.properties.security.protocol=SASL_SSL \
+  --spring.kafka.properties.sasl.mechanism=PLAIN \
+  --spring.kafka.properties.schema.registry.url=${SCHEMA_REGISTRY_URL} \
+  --spring.kafka.properties.basic.auth.credentials.source=USER_INFO \
+  --spring.kafka.properties.basic.auth.user.info=${SCHEMA_REGISTRY_API_KEY}:${SCHEMA_REGISTRY_API_SECRET} \
+  --spring.kafka.properties.schema.registry.basic.auth.user.info=${SCHEMA_REGISTRY_API_KEY}:${SCHEMA_REGISTRY_API_SECRET} \
+  --bootstrap-servers=${BOOTSTRAP_SERVERS} \
+  --spring.kafka.properties.sasl.jaas.config="org.apache.kafka.common.security.plain.PlainLoginModule required username='${KAFKA_API_KEY}' password='${KAFKA_API_SECRET}';"

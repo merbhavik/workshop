@@ -1,0 +1,16 @@
+Confluent Cloud Cluster –
+1. Provision Confluent Cloud Cluster
+2. Note - Bootstrap server, API Key, API secret,  Schema Registry URL, Schema Registry API Key and API Secret
+3. Create Topics - orders, prices, position-by-symbol, position-by-account, position-by-account-price, position-by-symbol-price
+
+AWS -
+1. Create S3 bucket, upload flink-impl-1.0-SNAPSHOT.jar
+2. MSF demo application with the Role which has access to S3 bucket
+3. Change MSF Environment configurations as described in MSF_EnvironmentProperties file (we can do it in workshop)
+4. Deploy MSF
+
+
+To run data-generator 
+1. java 11
+2. Copy data-generator-1.0-SNAPSHOT.jar and data-generator-scripts file.
+3. Change script file for the confluent cloud configuration.
