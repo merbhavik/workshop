@@ -1,0 +1,47 @@
+{
+  "fields": [
+    {
+      "name": "symbol",
+      "type": {
+        "avro.java.string": "String",
+        "type": "string"
+      }
+    },
+    {
+      "name": "account",
+      "type": {
+        "avro.java.string": "String",
+        "type": "string"
+      }
+    },
+    {
+      "name": "subAccount",
+      "type": {
+        "avro.java.string": "String",
+        "type": "string"
+      }
+    },
+    {
+      "name": "accSubSymbol",
+      "type": {
+        "avro.java.string": "String",
+        "type": "string"
+      }
+    },
+    {
+      "name": "amount",
+      "type": "int"
+    },
+    {
+      "name": "latency",
+      "type": "long"
+    },
+    {
+      "name": "timestamp",
+      "type": "long"
+    }
+  ],
+  "name": "QuantityByAccountSubAccountSymbol",
+  "namespace": "com.ness.poc.domain.outbound",
+  "type": "record"
+}

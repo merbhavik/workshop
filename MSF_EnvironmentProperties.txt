@@ -1,0 +1,49 @@
+"EnvironmentPropertyDescriptions": {
+                "PropertyGroupDescriptions": [
+                    {
+                        "PropertyGroupId": "kafka",
+                        "PropertyMap": {
+                            "bootstrap.servers": ${BOOTSTRAP_SERVERS},
+                            "sasl.jaas.config": "org.apache.kafka.common.security.plain.PlainLoginModule required username='${KAFKA_API_KEY}' password='${KAFKA_API_SECRET}';",
+                            "sasl.mechanism": "PLAIN",
+                            "schema.registry.basic.auth.credentials.source": "USER_INFO",
+                            "schema.registry.basic.auth.user.info": ${SCHEMA_REGISTRY_API_KEY}:${SCHEMA_REGISTRY_API_SECRET},
+                            "schema.registry.url": ${SCHEMA_REGISTRY_URL},
+                            "security.protocol": "SASL_SSL"
+                        }
+                    },
+                    {
+                        "PropertyGroupId": "kafka.consumer",
+                        "PropertyMap": {
+                            "enable.auto.commit": "false"
+                        }
+                    },
+                    {
+                        "PropertyGroupId": "kafka.producer",
+                        "PropertyMap": {
+                            "deliveryGuarantee": "EXACTLY_ONCE",
+                            "enable.idempotence": "true",
+                            "transaction.timeout.ms": "120000",
+                            "transactionIdPrefix": "flink2-orderProcessor_"
+                        }
+                    },
+                    {
+                        "PropertyGroupId": "price.source",
+                        "PropertyMap": {
+                            "maxParallelism": "4"
+                        }
+                    },
+                    {
+                        "PropertyGroupId": "channel",
+                        "PropertyMap": {
+                            "type": "KAFKA_CONFLUENT"
+                        }
+                    },
+                    {
+                        "PropertyGroupId": "order.source",
+                        "PropertyMap": {
+                            "maxParallelism": "4"
+                        }
+                    }
+                ]
+            }
